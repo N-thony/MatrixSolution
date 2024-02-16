@@ -14,8 +14,8 @@ namespace MatrixTestXUnit
                 { 3, 4, 5, 7, 2, 6 }
             };
 
-            CompactToSparseMatrix cpToSparseMatrix = new CompactToSparseMatrix(compactMatrix);
-            int[,] sparseMatrix = cpToSparseMatrix.CreateSparseMatrix();
+            CompactToSparseMatrix compactToSparseMatrix = new CompactToSparseMatrix(compactMatrix);
+            int[,] sparseMatrix = compactToSparseMatrix.CreateSparseMatrix();
 
             int[,] expectedSparseMatrix = {
             { 0, 0, 3, 0, 4 },
