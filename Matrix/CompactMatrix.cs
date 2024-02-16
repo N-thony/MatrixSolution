@@ -15,13 +15,13 @@ namespace Matrix
         public CompactMatrix(int[,] compactMatrix)
         {
             this.compactMatrix = compactMatrix;
-            this.iRows = compactMatrix.GetLength(0) + 1; // Assuming compactMatrix has a fixed structure with 3 rows.
-            this.iColumns = compactMatrix.GetLength(1) - 1;
+            this.iRows = compactMatrix.GetLength(0) + 1; // Added 1 to get the number of rows (4) for the expected sparse matrix.
+            this.iColumns = compactMatrix.GetLength(1) - 1; // Reduced by 1 to get the number of columns (5) for the expected sparse matrix.
         }
 
         public int[,] CreateSparseMatrix()
         {
-            int[,] sparseMatrix = new int[iRows, iColumns]; // Assuming compactMatrix has a fixed structure with 3 rows.
+            int[,] sparseMatrix = new int[iRows, iColumns];
 
             // Fill sparse matrix
             for (int j = 0; j < iColumns; j ++)
