@@ -21,14 +21,14 @@ namespace Matrix
 
         public void DisplayCompactMatrix()
         {
-            int size = CountNonZeroElements();
-            int[,] compactMatrix = CreateCompactMatrix(size);
+            int iSize = CountNonZeroElements();
+            int[,] compactMatrix = CreateCompactMatrix(iSize);
 
-            Console.WriteLine("Sparse Representation:\n");
+            Console.WriteLine("Compact Matrix:\n");
             // Display compact matrix
             for (int i = 0; i < 3; i++)
             {
-                for (int j = 0; j < size; j++)
+                for (int j = 0; j < iSize; j++)
                     Console.Write(" " + compactMatrix[i, j]);
                     Console.WriteLine();
             }
@@ -36,12 +36,12 @@ namespace Matrix
 
         private int CountNonZeroElements()
         {
-            int size = 0;
+            int iSize = 0;
             for (int i = 0; i < iRows; i++)
                 for (int j = 0; j < iColumns; j++)
                     if (sparseMatrix[i, j] != 0)
-                        size++;
-            return size;
+                        iSize++;
+            return iSize;
         }
 
         private int[,] CreateCompactMatrix(int size)

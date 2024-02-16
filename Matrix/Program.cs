@@ -20,7 +20,16 @@ namespace Matrix
             SparseMatrix newSparseMatrix = new SparseMatrix(sparseMatrix);
             newSparseMatrix.DisplayCompactMatrix();
 
-            // Keep the console window open
+            int[,] compactMatrix = {
+                { 0, 0, 1, 1, 3, 3 },
+                { 2, 4, 2, 3, 1, 2 },
+                { 3, 4, 5, 7, 2, 6 }
+            };
+
+            CompactMatrix converter = new CompactMatrix(compactMatrix);
+            converter.DisplaySparseMatrix();
+
+            //    // Keep the console window open
             Console.ReadLine();
         }
     }
