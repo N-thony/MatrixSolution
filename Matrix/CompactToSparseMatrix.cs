@@ -8,15 +8,20 @@ namespace Matrix
 {
    public class CompactToSparseMatrix
     {
-        private int[,] compactMatrix;
-        private int iRows;
-        private int iColumns;
+        private readonly int[,] compactMatrix;
+        private readonly int iRows;
+        private readonly int iColumns;
 
         public CompactToSparseMatrix(int[,] compactMatrix)
         {
             this.compactMatrix = compactMatrix;
-            this.iRows = compactMatrix.GetLength(0) + 1; // Added 1 to get the number of rows (4) for the expected sparse matrix.
-            this.iColumns = compactMatrix.GetLength(1) - 1; // Reduced by 1 to get the number of columns (5) for the expected sparse matrix.
+            // Adjusted the iRows with an extra row to accomodate the spare matrix
+            // this will allow it to match the provided example of sparse matrix with 4 rows.
+            this.iRows = compactMatrix.GetLength(0) + 1;
+
+            // Adjusted the iColumns to reduce by 1 column to accomodate the spare matrix.
+            // this will allow it to match the provided example of sparse matrix with 5 columns.
+            this.iColumns = compactMatrix.GetLength(1) - 1;
         }
 
         public int[,] CreateSparseMatrix()

@@ -8,9 +8,11 @@ namespace Matrix
 {
    public class SparseToCompactMatrix
     {
-        private int[,] sparseMatrix;
-        private int iRows;
-        private int iColumns;
+        private readonly int[,] sparseMatrix;
+        private readonly int iRows;
+        private readonly int iColumns;
+
+        private const int iCompactMatrixRows = 3;
 
         public SparseToCompactMatrix(int[,] sparseMatrix)
         {
@@ -26,7 +28,7 @@ namespace Matrix
 
             Console.WriteLine("Compact Matrix:\n");
             // Display compact matrix
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < iCompactMatrixRows; i++)
             {
                 for (int j = 0; j < iSize; j++)
                     Console.Write(" " + compactMatrix[i, j]);
@@ -37,16 +39,17 @@ namespace Matrix
         public int CountNonZeroElements()
         {
             int iSize = 0;
-            for (int i = 0; i < iRows; i++)
-                for (int j = 0; j < iColumns; j++)
-                    if (sparseMatrix[i, j] != 0)
-                        iSize++;
+            foreach (int element in sparseMatrix)
+            {
+                if (element != 0)
+                    iSize++;
+            }
             return iSize;
         }
 
         public int[,] CreateCompactMatrix(int size)
         {
-            int[,] compactMatrix = new int[3, size];
+            int[,] compactMatrix = new int[iCompactMatrixRows, size];
             int k = 0;
 
             // Fill compact matrix
