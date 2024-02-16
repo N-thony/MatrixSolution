@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Matrix
 {
-    class CompactToSparseMatrix
+   public class CompactToSparseMatrix
     {
         private int[,] compactMatrix;
         private int iRows;
@@ -43,7 +43,7 @@ namespace Matrix
             {
                 for (int j = 0; j < iColumns; j++)
                     Console.Write(" " + sparseMatrix[i, j]);
-                Console.WriteLine();
+                    Console.WriteLine();
             }
         }
     }
