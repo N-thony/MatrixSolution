@@ -89,9 +89,10 @@ namespace MatrixTestXUnit
         public void Constructor_WithAllZeroSparseMatrix_ReturnsNullCompactMatrix()
         {
             int[,] sparseMatrix = {
-                {0, 0, 0},
-                {0, 0, 0},
-                {0, 0, 0}
+                {0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0}
             };
 
             CompactMatrix compactMatrix = new CompactMatrix(sparseMatrix);

@@ -2,7 +2,7 @@
 {
     public class CompactMatrix
     {
-        private int[,] compactMatrix = null;
+        private int[,] compactMatrix;
 
         public CompactMatrix(int[,] sparseMatrix)
         {
@@ -20,7 +20,7 @@
 
             if (iSize == 0)
             {
-                compactMatrix = null; // Set compactMatrix to null for an all-zero sparse matrix
+                compactMatrix = null;
                 return;
             }
 

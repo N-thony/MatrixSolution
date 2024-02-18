@@ -8,11 +8,12 @@ namespace Matrix
 {
    public class SparseMatrix
     {
-        private int[,] sparseMatrix = null;
+        private int[,] sparseMatrix;
 
         public SparseMatrix(int[,] compactMatrix)
         {
-            if (compactMatrix is null) {
+            if (compactMatrix is null || compactMatrix.GetLength(0) != 3 || compactMatrix.GetLength(1) != 6)
+            {
                 return;
             }
 
@@ -23,6 +24,19 @@ namespace Matrix
             // Adjusted the iColumns to reduce by 1 column to accomodate the spare matrix.
             // this will allow it to match the provided example of sparse matrix with 5 columns.
             int iColumns = compactMatrix.GetLength(1) - 1;
+
+            int iCountNonZero = 0;
+            foreach (int element in compactMatrix)
+            {
+                if (element != 0)
+                    iCountNonZero++;
+            }
+
+            if (iCountNonZero == 0)
+            {
+                sparseMatrix = null; 
+                return;
+            }
 
             sparseMatrix = new int[iRows, iColumns];
             // Fill sparse matrix
