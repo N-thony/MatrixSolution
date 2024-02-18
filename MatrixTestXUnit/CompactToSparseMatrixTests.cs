@@ -28,10 +28,10 @@ namespace MatrixTestXUnit
             Assert.Equal(sparseMatrix, expectedSparseMatrix);
         }
 
-        [Fact]
-        public void CountNonZeroElementsTest()
-        {
+        //[Fact]
+        //public void CountNonZeroElementsTest()
+        //{
 
-        }
+        //}
     }
 }

@@ -14,6 +14,9 @@ namespace Matrix
 
         public CompactToSparseMatrix(int[,] compactMatrix)
         {
+            if (compactMatrix is null) {
+                return;
+            }
             this.compactMatrix = compactMatrix;
             // Adjusted the iRows with an extra row to accomodate the spare matrix
             // this will allow it to match the provided example of sparse matrix with 4 rows.
@@ -28,16 +31,20 @@ namespace Matrix
         {
             int[,] sparseMatrix = new int[iRows, iColumns];
 
-            // Fill sparse matrix
-            for (int j = 0; j < iColumns + 1; j ++)
+            if (compactMatrix != null)
             {
-                int iRow = compactMatrix[0, j];
-                int iCol = compactMatrix[1, j];
-                int iElement = compactMatrix[2, j];
-                sparseMatrix[iRow, iCol] = iElement;
-            }
+                // Fill sparse matrix
+                for (int j = 0; j < iColumns + 1; j++)
+                {
+                    int iRow = compactMatrix[0, j];
+                    int iCol = compactMatrix[1, j];
+                    int iElement = compactMatrix[2, j];
+                    sparseMatrix[iRow, iCol] = iElement;
+                }
 
-            return sparseMatrix;
+                return sparseMatrix;
+            }
+            return null;
         }
 
         public void DisplaySparseMatrix()

@@ -16,6 +16,10 @@ namespace Matrix
 
         public SparseToCompactMatrix(int[,] sparseMatrix)
         {
+            if(sparseMatrix is null)
+            {
+                return;
+            }
             this.sparseMatrix = sparseMatrix;
             this.iRows = sparseMatrix.GetLength(0);
             this.iColumns = sparseMatrix.GetLength(1);
@@ -38,13 +42,17 @@ namespace Matrix
 
         public int CountNonZeroElements()
         {
-            int iSize = 0;
-            foreach (int element in sparseMatrix)
+            if (sparseMatrix != null)
             {
-                if (element != 0)
-                    iSize++;
+                int iSize = 0;
+                foreach (int element in sparseMatrix)
+                {
+                    if (element != 0)
+                        iSize++;
+                }
+                return iSize;
             }
-            return iSize;
+            return 0;
         }
 
         public int[,] CreateCompactMatrix(int size)
@@ -52,20 +60,23 @@ namespace Matrix
             int[,] compactMatrix = new int[iCompactMatrixRows, size];
             int k = 0;
 
-            // Fill compact matrix
-            for (int i = 0; i < iRows; i++)
-            {
-                for (int j = 0; j < iColumns; j++)
-                    if (sparseMatrix[i, j] != 0)
-                    {
-                        compactMatrix[0, k] = i;
-                        compactMatrix[1, k] = j;
-                        compactMatrix[2, k] = sparseMatrix[i, j];
-                        k++;
-                    }
-            }
+            if (sparseMatrix != null)
+            {             // Fill compact matrix
+                for (int i = 0; i < iRows; i++)
+                {
+                    for (int j = 0; j < iColumns; j++)
+                        if (sparseMatrix[i, j] != 0)
+                        {
+                            compactMatrix[0, k] = i;
+                            compactMatrix[1, k] = j;
+                            compactMatrix[2, k] = sparseMatrix[i, j];
+                            k++;
+                        }
+                }
 
-            return compactMatrix;
+                return compactMatrix;
+            }
+            return null;
         }
     }
 }
