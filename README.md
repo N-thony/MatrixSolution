@@ -7,7 +7,6 @@ It includes a sample implementation and a set of xUnit tests to ensure correct f
 ## Features
 - **Conversion:** Facilitates the conversion between traditional dense matrix and sparse matrix representations.
 - **Efficiency:** Utilizes array-based structures to optimize memory usage and computational efficiency.
-- **Sample Implementation:** Includes a well-documented sample implementation for easy integration and understanding.
 
 ### Example
 Assuming the input matrix is:
