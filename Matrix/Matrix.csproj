@@ -58,10 +58,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CompactToSparseMatrix.cs" />
+    <Compile Include="SparseMatrix.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SparseToCompactMatrix.cs" />
+    <Compile Include="CompactMatrix.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

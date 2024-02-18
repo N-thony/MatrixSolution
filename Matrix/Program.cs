@@ -11,23 +11,23 @@ namespace Matrix
         static void Main(string[] args)
         {
             int[,] sparseMatrix = {
-            { 0, 0, 3, 0, 4 },
-            { 0, 0, 5, 7, 0 },
-            { 0, 0, 0, 0, 0 },
-            { 0, 2, 6, 0, 0 }
+                {1, 0, 0, -7, 0},
+                {0, -3, 0, -4, 5},
+                {0, 0, 0, 4, 0},
+                {2, 0, 6, 0, 0}
             };
 
-            SparseToCompactMatrix newSparseMatrix = new SparseToCompactMatrix(sparseMatrix);
-            newSparseMatrix.DisplayCompactMatrix();
+            CompactMatrix _compactMatrix = new CompactMatrix(sparseMatrix);
+            Console.WriteLine(_compactMatrix.GetCompactMatrix());
 
-            int[,] compactMatrix = {
-                { 0, 0, 1, 1, 3, 3 },
-                { 2, 4, 2, 3, 1, 2 },
-                { 3, 4, 5, 7, 2, 6 }
-            };
+            //int[,] compactMatrix = {
+            //    { 0, 0, 1, 1, 3, 3 },
+            //    { 2, 4, 2, 3, 1, 2 },
+            //    { 3, 4, 5, 7, 2, 6 }
+            //};
 
-            CompactToSparseMatrix converter = new CompactToSparseMatrix(compactMatrix);
-            converter.DisplaySparseMatrix();
+            //SparseMatrix converter = new SparseMatrix(compactMatrix);
+            //converter.DisplaySparseMatrix();
 
             //Keep the console window open
             Console.ReadLine();
