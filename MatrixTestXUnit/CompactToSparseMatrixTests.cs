@@ -26,7 +26,6 @@ namespace MatrixTestXUnit
             { 0, 2, 6, 0, 0 }
             };
 
-
             Assert.Equal(sparseMatrix, expectedSparseMatrix);
         }
 
@@ -48,7 +47,6 @@ namespace MatrixTestXUnit
             var expectedOutput = "Sparse Matrix:\n\r\n 0 0 3 0 4\r\n 0 0 5 7 0\r\n 0 0 0 0 0\r\n 0 2 6 0 0\r\n";
 
             Assert.Equal(expectedOutput.Trim(), consoleOutput.ToString().Trim());
-
         }
     }
 }
