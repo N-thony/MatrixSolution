@@ -12,7 +12,7 @@ namespace Matrix
 
         public SparseMatrix(int[,] compactMatrix)
         {
-            if (compactMatrix is null || compactMatrix.GetLength(0) != 3 || compactMatrix.GetLength(1) != 6)
+            if (compactMatrix is null || compactMatrix.GetLength(0) != 3)
             {
                 return;
             }

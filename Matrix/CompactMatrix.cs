@@ -6,7 +6,7 @@
 
         public CompactMatrix(int[,] sparseMatrix)
         {
-            if (sparseMatrix is null || sparseMatrix.GetLength(0) != 4 || sparseMatrix.GetLength(1) != 5 )
+            if (sparseMatrix is null || sparseMatrix.GetLength(0) != 4)
             {
                 return;
             }
