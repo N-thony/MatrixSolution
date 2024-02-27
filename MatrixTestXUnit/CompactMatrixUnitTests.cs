@@ -15,7 +15,8 @@ namespace MatrixTestXUnit
             { 0, 2, 6, 0, 0 }
             };
 
-            CompactMatrix _compactMatrix = new CompactMatrix(sparseMatrix);
+            // Create a CompactMatrix instance from the sparse matrix
+            CompactMatrix _compactMatrix = CompactMatrix.CreateFromSparseMatrix(sparseMatrix);
 
             int[,] expectedCompactMatrix = {
                 { 0, 0, 1, 1, 3, 3 },
@@ -35,9 +36,10 @@ namespace MatrixTestXUnit
                 {2, 0, 3, 8, 0}
             };
 
-            CompactMatrix compactMatrix = new CompactMatrix(sparseMatrix);
+            // Create a CompactMatrix instance from the sparse matrix
+            CompactMatrix _compactMatrix = CompactMatrix.CreateFromSparseMatrix(sparseMatrix);
 
-            int[,] result = compactMatrix.GetCompactMatrix();
+            int[,] result = _compactMatrix.GetCompactMatrix();
             Assert.Equal(8, result.GetLength(1));
             Assert.Equal(3, result.GetLength(0));
             Assert.Equal(3, result[0, 6]);
@@ -55,9 +57,10 @@ namespace MatrixTestXUnit
                 {2, 0, 6, 0, 0}
             };
 
-            CompactMatrix compactMatrix = new CompactMatrix(sparseMatrix);
+            // Create a CompactMatrix instance from the sparse matrix
+            CompactMatrix _compactMatrix = CompactMatrix.CreateFromSparseMatrix(sparseMatrix);
 
-            int[,] result = compactMatrix.GetCompactMatrix();
+            int[,] result = _compactMatrix.GetCompactMatrix();
             Assert.Equal(8, result.GetLength(1));
             Assert.Equal(3, result.GetLength(0));
             Assert.Equal(-7, result[2, 1]);
@@ -70,9 +73,10 @@ namespace MatrixTestXUnit
         [Fact]
         public void Constructor_WithNullSparseMatrix_ReturnsNullCompactMatrix()
         {
-            CompactMatrix compactMatrix = new CompactMatrix(null);
+            // Create a CompactMatrix instance from the sparse matrix
+            CompactMatrix _compactMatrix = CompactMatrix.CreateFromSparseMatrix(null);
 
-            Assert.Null(compactMatrix.GetCompactMatrix());
+            Assert.Null(_compactMatrix.GetCompactMatrix());
         }
 
         [Fact]
@@ -80,9 +84,10 @@ namespace MatrixTestXUnit
         {
             int[,] sparseMatrix = new int[0, 0];
 
-            CompactMatrix compactMatrix = new CompactMatrix(sparseMatrix);
+            // Create a CompactMatrix instance from the sparse matrix
+            CompactMatrix _compactMatrix = CompactMatrix.CreateFromSparseMatrix(sparseMatrix);
 
-            Assert.Null(compactMatrix.GetCompactMatrix());
+            Assert.Null(_compactMatrix.GetCompactMatrix());
         }
 
         [Fact]
@@ -95,17 +100,19 @@ namespace MatrixTestXUnit
                 {0, 0, 0, 0, 0}
             };
 
-            CompactMatrix compactMatrix = new CompactMatrix(sparseMatrix);
+            // Create a CompactMatrix instance from the sparse matrix
+            CompactMatrix _compactMatrix = CompactMatrix.CreateFromSparseMatrix(sparseMatrix);
 
-            Assert.Null(compactMatrix.GetCompactMatrix());
+            Assert.Null(_compactMatrix.GetCompactMatrix());
         }
 
         [Fact]
         public void GetCompactMatrix_WithoutCallingConstructor_ReturnsNull()
         {
-            CompactMatrix compactMatrix = new CompactMatrix(null);
+            // Create a CompactMatrix instance from the sparse matrix
+            CompactMatrix _compactMatrix = CompactMatrix.CreateFromSparseMatrix(null);
 
-            int[,] result = compactMatrix.GetCompactMatrix();
+            int[,] result = _compactMatrix.GetCompactMatrix();
 
             Assert.Null(result);
         }
@@ -119,9 +126,10 @@ namespace MatrixTestXUnit
                 { 0, 0, -3 }
             };
 
-            CompactMatrix compactMatrix = new CompactMatrix(sparseMatrix);
+            // Create a CompactMatrix instance from the sparse matrix
+            CompactMatrix _compactMatrix = CompactMatrix.CreateFromSparseMatrix(sparseMatrix);
 
-            int[,] result = compactMatrix.GetCompactMatrix();
+            int[,] result = _compactMatrix.GetCompactMatrix();
             Assert.Null(result); // Ensure that compactMatrix is null for the given sparse matrix
         }
 

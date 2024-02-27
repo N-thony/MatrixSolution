@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Matrix
 {
@@ -23,20 +19,25 @@ namespace Matrix
                 { 3, 4, 5, 7, 2, 6 }
             };
 
-            CompactMatrix _compactMatrix = new CompactMatrix(sparseMatrix);
+            // Create a CompactMatrix instance from the sparse matrix
+            CompactMatrix _compactMatrix = CompactMatrix.CreateFromSparseMatrix(sparseMatrix);
 
-            SparseMatrix _sparseMatrix = new SparseMatrix(compactMatrix);
+            // Retrieve the compact matrix
+            int[,] result = _compactMatrix.GetCompactMatrix();
 
-            //var expectedMatrix = _sparseMatrix.GetSparseMatrix();
-            var expectedMatrix = _compactMatrix.GetCompactMatrix();
+            // Create a SparseMatrix instance from the compact matrix
+            // SparseMatrix _sparseMatrix = SparseMatrix.CreateFromCompactMatrix(compactMatrix);
 
-            int numRows = expectedMatrix.GetLength(0);
-            int numCols = expectedMatrix.GetLength(1);
+            // Retrieve the sparse matrix
+            //int[,] result = _sparseMatrix.GetSparseMatrix();
+
+            int numRows = result.GetLength(0);
+            int numCols = result.GetLength(1);
             for (int i = 0; i < numRows; i++)
             {
                 for (int j = 0; j < numCols; j++)
                 {
-                    Console.Write(expectedMatrix[i, j] + " ");
+                    Console.Write(result[i, j] + " ");
                 }
                 Console.WriteLine(); // Move to the next line for the next row
             }
