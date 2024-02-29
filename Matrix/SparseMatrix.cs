@@ -2,6 +2,9 @@
 
 namespace Matrix
 {
+    /// <summary>
+    /// Represents the sparse matrix.
+    /// </summary>
     public class SparseMatrix
     {
         private readonly int[,] sparseMatrix;
@@ -12,7 +15,11 @@ namespace Matrix
             this.sparseMatrix = sparseMatrix;
         }
 
-        // Factory method to create SparseMatrix from a compact matrix
+        /// <summary>
+        /// Factory method to create SparseMatrix from a compact matrix.
+        /// </summary>
+        /// <param name="compactMatrix">The input compact matrix.</param>
+        /// <returns>A SparseMatrix instance.</returns>
         public static SparseMatrix CreateFromCompactMatrix(int[,] compactMatrix)
         {
             ValidateCompactMatrix(compactMatrix);
@@ -62,7 +69,10 @@ namespace Matrix
             return count;
         }
 
-        // Public method to get the sparse matrix
+        /// <summary>
+        /// Gets the sparse matrix.
+        /// </summary>
+        /// <returns>The sparse matrix.</returns>
         public int[,] GetSparseMatrix()
         {
             return sparseMatrix;
